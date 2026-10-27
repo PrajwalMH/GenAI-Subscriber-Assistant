@@ -2,6 +2,11 @@
 
 GenAI-powered subscriber analytics assistant that lets users ask natural-language questions about subscriber data and receive grounded business insights based on real metrics calculated from a CSV dataset.
 
+## Live Demo
+
+🚀 **Try the deployed application here:**  
+[Open GenAI Subscriber Assistant](https://genai-subscriber-assistant.streamlit.app/)
+
 ## Overview
 
 The application combines traditional data analytics with Generative AI.

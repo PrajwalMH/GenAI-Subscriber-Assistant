@@ -1,5 +1,6 @@
 import os
 
+import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -16,11 +17,16 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 if not api_key:
+    try:
+        api_key = st.secrets["OPENAI_API_KEY"]
+    except Exception:
+        api_key = None
+
+if not api_key:
     raise ValueError(
         "OPENAI_API_KEY was not found. "
-        "Add it to your .env file."
+        "Add it to .env locally or Streamlit Secrets when deployed."
     )
-
 
 client = OpenAI(
     api_key=api_key
@@ -69,6 +75,8 @@ Instructions:
 - Give a short professional business summary.
 - Use only the numbers above.
 - Do not invent any metrics.
+- Do not describe subscribers as high-value, low-value, loyal, risky,
+  or similar unless directly supported by the provided metrics.
 - Mention retention if relevant.
 - Explain the most important insight.
 - Keep the response concise.
@@ -94,40 +102,3 @@ def generate_insight(question):
     )
 
     return response.output_text
-
-
-# ============================================================
-# COMMAND LINE CHAT
-# ============================================================
-
-if __name__ == "__main__":
-
-    print("=" * 60)
-    print("GENAI SUBSCRIBER ANALYTICS ASSISTANT")
-    print("=" * 60)
-
-    print("\nType 'exit' to stop.\n")
-
-    while True:
-
-        question = input(
-            "Ask a subscriber analytics question: "
-        )
-
-        if question.lower().strip() in [
-            "exit",
-            "quit"
-        ]:
-            print(
-                "\nSubscriber Analytics Assistant stopped."
-            )
-            break
-
-        response = generate_insight(
-            question
-        )
-
-        print("\nGenAI Response:\n")
-        print(response)
-
-        print("\n" + "-" * 60 + "\n")

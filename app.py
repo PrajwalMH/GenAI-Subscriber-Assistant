@@ -382,7 +382,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 st.markdown(
     """
     <div class="subtitle">
@@ -401,45 +400,78 @@ st.markdown(
 with st.sidebar:
 
     st.markdown(
-        "## 🤖 GenAI Assistant"
+        "## 🤖 GenAI Subscriber Assistant"
     )
 
     st.write(
-        "This assistant retrieves real subscriber "
-        "metrics from `subscribers.csv` and uses "
-        "OpenAI to generate business-friendly insights."
+        "A GenAI-powered analytics assistant that combines "
+        "subscriber data analysis with natural-language insights."
     )
 
     st.divider()
 
     st.markdown(
-        "### Example Questions"
+        "### 🎯 Project Capabilities"
     )
 
     st.write(
-        "• Tell me about Premium subscribers "
-        "in the South region"
+        "• Query subscriber data using natural language"
     )
 
     st.write(
-        "• Tell me about Basic subscribers "
-        "in the West region"
+        "• Analyze subscriber counts by region and plan"
     )
 
     st.write(
-        "• How are Standard subscribers "
-        "performing in the North?"
+        "• Calculate average subscriber spending"
     )
 
     st.write(
-        "• Give me insights about Premium "
-        "subscribers in the East"
+        "• Measure churn and retention performance"
+    )
+
+    st.write(
+        "• Analyze average subscriber tenure"
+    )
+
+    st.write(
+        "• Compare active and churned subscribers"
+    )
+
+    st.write(
+        "• Generate business-friendly insights using OpenAI"
+    )
+
+    st.write(
+        "• Ground GenAI responses using verified Pandas metrics"
+    )
+
+    st.divider()
+
+    st.markdown(
+        "### ⚙️ How It Works"
+    )
+
+    st.caption(
+        "Natural-language query → Query Parser → "
+        "Pandas Analytics → Verified Metrics → "
+        "OpenAI → Business Insight"
+    )
+
+    st.divider()
+
+    st.markdown(
+        "### 💬 Sample Prompt"
+    )
+
+    st.info(
+        "Tell me about Premium subscribers in the South region."
     )
 
     st.divider()
 
     if st.button(
-        "Clear Conversation",
+        "🗑️ Clear Conversation",
         use_container_width=True
     ):
 
